@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Add input fields for item details.
         itemRow.innerHTML = `
-            <td><input type="text" class="input-field" name="item-name" placeholder="Item Name" required></td>
+            <td><input type="text" class="input-field" name="item-name" required></td>
             <td><input type="number" class="input-field" name="quantity" required></td>
             <td><input type="number" class="input-field" name="unit-price" required></td>
-            <td><input type="number" class="input-field" name="previous-quantity" required></td>
+            <td><input type="number" class="input-field" name="completion" required></td>
         `;
 
         // Add the item row to the table body.
@@ -47,14 +47,14 @@ document.addEventListener("DOMContentLoaded", function () {
             const itemName = row.querySelector('input[name="item-name"]').value;
             const quantity = parseFloat(row.querySelector('input[name="quantity"]').value);
             const unitPrice = parseFloat(row.querySelector('input[name="unit-price"]').value);
-            const previousQuantity = parseFloat(row.querySelector('input[name="previous-quantity"]').value);
+            const completion = parseFloat(row.querySelector('input[name="completion"]').value);
 
-            if (itemName && !isNaN(quantity) && !isNaN(unitPrice) && !isNaN(previousQuantity)) {
+            if (itemName && !isNaN(quantity) && !isNaN(unitPrice) && !isNaN(completion)) {
                 const item = {
                     name: itemName,
                     quantity: quantity,
                     unitPrice: unitPrice,
-                    previousQuantity: previousQuantity,
+                    completion: completion,
                 };
 
                 items.push(item);
@@ -75,10 +75,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const daysInMonth = 30; // Assuming an average month length
 
         for (const item of items) {
-            const currentQuantity = item.quantity;
-            const previousQuantity = item.previousQuantity;
+            const quantity = item.quantity;
+            const completion = item.completion;
 
-            const progress = (currentQuantity - previousQuantity) * item.unitPrice;
+            const progress = (quantity * item.unitPrice * completion) / 100;
             totalProgress += progress;
         }
 
@@ -93,10 +93,10 @@ document.addEventListener("DOMContentLoaded", function () {
         let totalProgress = 0;
 
         for (const item of items) {
-            const currentQuantity = item.quantity;
-            const previousQuantity = item.previousQuantity;
+            const quantity = item.quantity;
+            const completion = item.completion;
 
-            const progress = (currentQuantity - previousQuantity) * item.unitPrice;
+            const progress = (quantity * item.unitPrice * completion) / 100;
             totalProgress += progress;
         }
 
