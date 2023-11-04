@@ -1,68 +1,21 @@
-/* tailwind.css */
-
-/* Container styles */
 .container {
-    max-width: 1140px;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
-/* Flexbox centering utility */
-.flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Form input styles */
-.input-label {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-}
-
-.input-field {
-    border: 1px solid #e2e8f0;
-    padding: 0.5rem;
-    font-size: 1rem;
-    width: 100%;
-}
-
-/* Button styles */
-.btn {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.form-group {
+  margin-bottom: 15px;
 }
 
 .btn-primary {
-    background-color: #3490dc;
-    color: white;
+  background-color: #007bff;
+  color: white;
 }
 
-.btn-primary:hover {
-    background-color: #2779bd;
-}
+/* Tailwind CSS */
 
-.btn-success {
-    background-color: #38a169;
-    color: white;
-}
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 
 
-.btn-success:hover {
-    background-color: #2f855a;
-}
-
-.btn-warning {
-    background-color: #f6e05e;
-    color: #333;
-}
-
-.btn-warning:hover {
-    background-color: #ecc94b;
-}
-
-/* Result display styles */
-.result {
-    font-size: 1.2rem;
-    margin-top: 1rem;
-}
