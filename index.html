@@ -15,19 +15,19 @@
             <form id="project-form" class="mb-4">
                 <div class="mb-4">
                     <label for="project-name" class="block">Project Name:</label>
-                    <input type="text" name="project-name" id="project-name" class="input-field">
+                    <input type="text" name="project-name" id="project-name" class="input-field" required>
                 </div>
                 <div class="mb-4">
                     <label for="contract-amount" class="block">Contract Amount:</label>
-                    <input type="number" name="contract-amount" id="contract-amount" class="input-field">
+                    <input type="number" name="contract-amount" id="contract-amount" class="input-field" required>
                 </div>
                 <div class="mb-4">
                     <label for="start-date" class="block">Start Date:</label>
-                    <input type="date" name="start-date" id="start-date" class="input-field">
+                    <input type="date" name="start-date" id="start-date" class="input-field" required>
                 </div>
                 <div class="mb-4">
                     <label for="end-date" class="block">End Date:</label>
-                    <input type="date" name="end-date" id="end-date" class="input-field">
+                    <input type="date" name="end-date" id="end-date" class="input-field" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Calculate</button>
             </form>
@@ -49,7 +49,9 @@
                         <th class="px-4 py-2">Previous Quantity</th>
                     </tr>
                 </thead>
-                <tbody id="items-tbody"></tbody>
+                <tbody id="items-tbody">
+                    <!-- Rows for adding items -->
+                </tbody>
             </table>
 
             <!-- Result Display -->
