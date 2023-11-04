@@ -1,51 +1,23 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const prevMonthInput = document.getElementById("prevMonth");
-    const currMonthInput = document.getElementById("currMonth");
-    const calculateBtn = document.getElementById("calculateBtn");
-    const result = document.getElementById("result");
-    const saveBtn = document.getElementById("saveBtn");
-    const exportBtn = document.getElementById("exportBtn");
+const projectForm = document.getElementById('project-form');
+const monthlyProgressPaymentDiv = document.getElementById('monthly-progress-payment');
 
-    calculateBtn.addEventListener("click", function () {
-        const prevMonthAmount = parseFloat(prevMonthInput.value);
-        const currMonthAmount = parseFloat(currMonthInput.value);
+projectForm.addEventListener('submit', function(event) {
+  event.preventDefault();
 
-        if (isNaN(prevMonthAmount) || isNaN(currMonthAmount) || prevMonthAmount < 0 || currMonthAmount < 0) {
-            result.textContent = "Please enter valid positive numbers.";
-        } else {
-            const payment = currMonthAmount - prevMonthAmount;
-            result.textContent = `Monthly Payment: $${payment.toFixed(2)}`;
-        }
-    });
+  // Get the project data from the form.
+  const projectName = projectForm.querySelector('input[name="project-name"]').value;
+  const contractAmount = projectForm.querySelector('input[name="contract-amount"]').value;
+  const startDate = projectForm.querySelector('input[name="start-date"]').value;
+  const endDate = projectForm.querySelector('input[name="end-date"]').value;
 
-    saveBtn.addEventListener("click", function () {
-        const prevMonthAmount = parseFloat(prevMonthInput.value);
-        const currMonthAmount = parseFloat(currMonthInput.value);
+  // Calculate the monthly progress payment.
+  const monthlyProgressPayment = calculateMonthlyProgressPayment(projectName, contractAmount, startDate, endDate);
 
-        if (!isNaN(prevMonthAmount) && !isNaN(currMonthAmount) && prevMonthAmount >= 0 && currMonthAmount >= 0) {
-            const data = {
-                prevMonthAmount,
-                currMonthAmount
-            };
-            localStorage.setItem("projectData", JSON.stringify(data));
-            result.textContent = "Data saved.";
-        } else {
-            result.textContent = "Please enter valid positive numbers before saving.";
-        }
-    });
-
-    exportBtn.addEventListener("click", function () {
-        const savedData = localStorage.getItem("projectData");
-        if (savedData) {
-            const data = JSON.parse(savedData);
-            const blob = new Blob([JSON.stringify(data)], { type: "application/json" });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = "project_data.json";
-            a.click();
-        } else {
-            result.textContent = "No data to export. Please save data first.";
-        }
-    });
+  // Display the monthly progress payment.
+  monthlyProgressPaymentDiv.textContent = `Monthly Progress Payment: $${monthlyProgressPayment}`;
 });
+
+// Calculates the monthly progress payment.
+function calculateMonthlyProgressPayment(projectName, contractAmount, startDate, endDate) {
+  // TODO: Implement this function.
+}
