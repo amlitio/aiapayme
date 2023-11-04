@@ -19,6 +19,27 @@
       background-color: #007bff;
       color: white;
     }
+
+    .table {
+      width: 100%;
+      margin-bottom: 1rem;
+      color: #212529;
+    }
+
+    .th,
+    .td {
+      padding: 0.75rem;
+      vertical-align: top;
+      border: 1px solid #dee2e6;
+    }
+
+    .th {
+      background-color: #e9ecef;
+    }
+
+    .tr:nth-child(even) {
+      background-color: #f5f5f5;
+    }
   </style>
 </head>
 <body>
@@ -28,26 +49,41 @@
     <form id="project-form" class="flex flex-col gap-4">
       <div class="flex flex-col gap-2">
         <label for="project-name" class="text-sm font-semibold">Project Name</label>
-        <input type="text" class="form-input" id="project-name" name="project-name" placeholder="Enter the name of the project">
+        <input type="text" class="form-input w-full p-4 border border-gray-300 rounded-md" id="project-name" name="project-name" placeholder="Enter the name of the project">
       </div>
       <div class="flex flex-col gap-2">
         <label for="contract-amount" class="text-sm font-semibold">Contract Amount</label>
-        <input type="number" class="form-input" id="contract-amount" name="contract-amount" placeholder="Enter the total contract amount">
+        <input type="number" class="form-input w-full p-4 border border-gray-300 rounded-md" id="contract-amount" name="contract-amount" placeholder="Enter the total contract amount">
       </div>
       <div class="flex flex-col gap-2">
         <label for="start-date" class="text-sm font-semibold">Start Date</label>
-        <input type="date" class="form-input" id="start-date" name="start-date" placeholder="Enter the start date of the project">
+        <input type="date" class="form-input w-full p-4 border border-gray-300 rounded-md" id="start-date" name="start-date" placeholder="Enter the start date of the project">
       </div>
       <div class="flex flex-col gap-2">
         <label for="end-date" class="text-sm font-semibold">End Date</label>
-        <input type="date" class="form-input" id="end-date" name="end-date" placeholder="Enter the end date of the project">
+        <input type="date" class="form-input w-full p-4 border border-gray-300 rounded-md" id="end-date" name="end-date" placeholder="Enter the end date of the project">
       </div>
-      <button type="submit" class="btn-primary">Calculate Monthly Progress Payment</button>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="text-left">Item</th>
+            <th class="text-right">Quantity</th>
+            <th class="text-right">Unit Price</th>
+            <th class="text-right">Previous Quantity</th>
+          </tr>
+        </thead>
+        <tbody id="items-tbody">
+          </tbody>
+      </table>
+
+      <div class="flex flex-col gap-2">
+        <button type="button" class="btn-primary w-full p-4 bg-blue-500 text-white rounded-md" id="add-item-button">Add Item</button>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <button type="submit" class="btn-primary w-full p-4 bg-blue-500 text-white rounded-md">Calculate Monthly Progress Payment</button>
+      </div>
     </form>
 
-    <div id="monthly-progress-payment"></div>
-  </div>
-
-  <script src="main.js"></script>
-</body>
-</html>
+    <div id="monthly-progress-
