@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIA Pay Application Calculator</title>
+    <link rel="stylesheet" href="tailwind.css">
+</head>
+<body class="bg-gray-200">
+    <div class="container mx-auto p-4">
+        <div class="bg-white p-6 rounded-md shadow-md">
+            <h1 class="text-2xl font-semibold mb-4">AIA Pay Application Calculator</h1>
+            <label for="prevMonth" class="input-label">Previous Month Amount:</label>
+            <input type="number" id="prevMonth" class="input-field mb-2">
+            <label for "currMonth" class="input-label">Current Month Amount:</label>
+            <input type="number" id="currMonth" class="input-field mb-4">
+            <button id="calculateBtn" class="btn btn-primary">Calculate</button>
+            <button id="saveBtn" class="btn btn-success">Save Data</button>
+            <button id="exportBtn" class="btn btn-warning">Export Data</button>
+            <p id="result" class="result"></p>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
